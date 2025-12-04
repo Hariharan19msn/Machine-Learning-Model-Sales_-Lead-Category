@@ -1,6 +1,8 @@
 import streamlit as st
 import joblib
 import pandas as pd
+from category_encoders import TargetEncoder
+
 
 # Load model and threshold (not used for decision anymore, just display)
 model = joblib.load("best_lead_model.pkl")
