@@ -1,14 +1,17 @@
 import streamlit as st
-import joblib
 import pandas as pd
+import joblib
+import cloudpickle  # Ensure this is installed in your requirements.txt
 
 # Load model and threshold
-model = joblib.load("best_lead_model.pkl")
-best_th = joblib.load("best_threshold.pkl")
+with open("best_lead_model.pkl", "rb") as f:
+    model = cloudpickle.load(f)
+
+best_th = joblib.load("best_threshold.pkl")  # Threshold is just a float
 
 st.title("🔮 Lead Category Prediction (High / Low Potential)")
-st.write("This prediction uses a **strict 50% threshold** for better clarity.")
-st.write(f"📌 Model original optimized threshold (for reference): **{best_th:.2f}**")
+st.write("This prediction uses a **strict 50% threshold** for clarity.")
+st.write(f"📌 Model original optimized threshold (reference): **{best_th:.2f}**")
 
 # ------------------- Input Fields -------------------
 source = st.text_input("Source")
