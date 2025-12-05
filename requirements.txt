@@ -2,9 +2,10 @@ streamlit
 pandas
 numpy
 scikit-learn
-category-encoders
+category_encoders
 xgboost
 joblib
+
 
 
 
