@@ -1,7 +1,9 @@
-Flask
+flask
 pandas
 numpy
-scikit-learn
-category-encoders
-xgboost
 joblib
+xgboost
+category-encoders
+scikit-learn==1.6.0
+
+
