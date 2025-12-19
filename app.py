@@ -43,12 +43,14 @@ def index():
 
         # Predict
         prob = model.predict_proba(df)[0][1] * 100
-        prediction = "HIGH POTENTIAL" if prob >= 50 else "LOW POTENTIAL"
+        prediction = "HIGH POTENTIAL" if prob >= (best_th * 100) else "LOW POTENTIAL"
+        #prediction = "HIGH POTENTIAL" if prob >= 50 else "LOW POTENTIAL"
         confidence = round(prob, 2)
 
     return render_template("index.html", prediction=prediction, confidence=confidence, threshold=best_th)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
